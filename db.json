@@ -1,0 +1,63 @@
+{
+  "product": [
+    {
+      "id": "abc",
+      "name": "Iphone 15",
+      "price": 5000,
+      "category": {
+        "id": "1",
+        "name": "Apple"
+      }
+    },
+    {
+      "id": "abc1",
+      "name": "Samsung galaxy S20",
+      "price": 6000,
+      "category": {
+        "id": "2",
+        "name": "Samsung"
+      }
+    },
+    {
+      "id": "9ea8",
+      "name": "123",
+      "price": "123",
+      "category": {
+        "id": "1",
+        "name": "Apple"
+      }
+    },
+    {
+      "id": "71b4",
+      "name": "123",
+      "price": "123",
+      "category": {
+        "id": "1",
+        "name": "Apple"
+      }
+    },
+    {
+      "id": "75bc",
+      "name": "vi",
+      "price": "2000",
+      "category": {
+        "id": "1",
+        "name": "Apple"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": "1",
+      "name": "Apple"
+    },
+    {
+      "id": "2",
+      "name": "Samsung"
+    },
+    {
+      "id": "3",
+      "name": "Xiaomi"
+    }
+  ]
+}
