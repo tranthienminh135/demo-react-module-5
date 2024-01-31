@@ -30,7 +30,11 @@ const CreateProductApp = () => {
         initialValues={initProduct}
         validationSchema={validation}
         onSubmit={(values, { setSubmitting }) => {
-          const product = { ...values, category: JSON.parse(values.category) };
+          const product = {
+            ...values,
+            category: JSON.parse(values.category),
+            price: +values.price,
+          };
           addNewProduct(product).then((res) => {
             console.log(res);
             setSubmitting(false);

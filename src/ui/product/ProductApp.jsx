@@ -4,18 +4,35 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Table } from "react-bootstrap";
 import DeleteModal from "./DeleteModal";
+import { findAllCategory } from "../../services/category-service";
+
+const initSearchParam = {
+  name: "",
+  category: "",
+  sortPrice: "asc",
+};
 
 const Product = () => {
   const [products, setProducts] = useState();
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [idDelete, setIdDelete] = useState();
+  const [categories, setCategories] = useState();
+  const [searchParam, setSearchParam] = useState(initSearchParam);
 
   useEffect(() => {
-    getAllProduct();
+    getAllProduct(searchParam);
   }, []);
-  const getAllProduct = () => {
-    findAllProduct().then((res) => setProducts(res));
+
+  useEffect(() => {
+    const getAllCategories = () => {
+      findAllCategory().then((category) => setCategories(category));
+    };
+    getAllCategories();
+  }, []);
+
+  const getAllProduct = (param) => {
+    findAllProduct(param).then((res) => setProducts(res));
   };
 
   const handleNavigateCreateProductApp = () => {
@@ -37,17 +54,62 @@ const Product = () => {
     });
   };
 
+  const handleSearchChange = (e) => {
+    const { name, value } = e.target;
+    setSearchParam({ ...searchParam, [name]: value });
+  };
+
+  const handleSearch = () => {
+    getAllProduct(searchParam);
+  };
+
+  const handleSortPrice = () => {
+    //luu gia tri sort
+    if (searchParam.sortPrice === "asc") {
+      setSearchParam({ ...searchParam, sortPrice: "desc" });
+    } else {
+      setSearchParam({ ...searchParam, sortPrice: "asc" });
+    }
+    //sort
+    const sort = {
+      ...searchParam,
+      sortPrice: searchParam.sortPrice === "asc" ? "desc" : "asc",
+    };
+    getAllProduct(sort);
+  };
+
   if (!products) return <div>Loading...</div>;
 
   return (
     <div>
       <button onClick={handleNavigateCreateProductApp}>Create</button>
+
+      <div>
+        <input type="text" name="name" onChange={handleSearchChange} />
+        {categories && (
+          <select name="category" onChange={handleSearchChange}>
+            <option value="" selected>
+              All category
+            </option>
+            {categories.map((category) => (
+              <option value={category.name} key={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        )}
+        <button onClick={handleSearch}>Search</button>
+      </div>
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>No.</th>
             <th>Name</th>
-            <th>Price</th>
+            <th>
+              <button onClick={handleSortPrice}>
+                Price [{searchParam.sortPrice}]
+              </button>
+            </th>
             <th>Category</th>
             <th>Delete</th>
             <th>Edit</th>

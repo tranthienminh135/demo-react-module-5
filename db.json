@@ -10,27 +10,18 @@
       }
     },
     {
-      "id": "abc1",
-      "name": "Samsung galaxy S20",
-      "price": 6000,
+      "id": "9ea8",
+      "name": "123",
+      "price": 123,
       "category": {
         "id": "2",
         "name": "Samsung"
       }
     },
     {
-      "id": "9ea8",
-      "name": "123",
-      "price": "123",
-      "category": {
-        "id": "1",
-        "name": "Apple"
-      }
-    },
-    {
       "id": "71b4",
       "name": "123",
-      "price": "123",
+      "price": 123,
       "category": {
         "id": "1",
         "name": "Apple"
@@ -39,11 +30,38 @@
     {
       "id": "75bc",
       "name": "vi",
-      "price": "2000",
+      "price": 2000,
       "category": {
         "id": "1",
         "name": "Apple"
       }
+    },
+    {
+      "name": "tran thien minh666",
+      "price": 1232,
+      "category": {
+        "id": "3",
+        "name": "Xiaomi"
+      },
+      "id": "sadaIqz"
+    },
+    {
+      "name": "tran thien minh",
+      "price": 1111,
+      "category": {
+        "id": "2",
+        "name": "Samsung"
+      },
+      "id": "Ekzck5u"
+    },
+    {
+      "name": "tran thien minh666",
+      "price": 123123,
+      "category": {
+        "id": "1",
+        "name": "Apple"
+      },
+      "id": "1f5aY1i"
     }
   ],
   "category": [
